@@ -4,21 +4,21 @@ const products = [
     name: "product 1",
     price: 100000,
     category: "AMD",
-    stock: 10,
+    stock: 10
   },
   {
     id: 2,
     name: "product 2",
     price: 200000,
     category: "Intel",
-    stock: 5,
+    stock: 5
   },
   {
     id: 3,
     name: "product 3",
     price: 300000,
     category: "AMD",
-    stock: 3,
+    stock: 3
   },
 ];
 export const getProducts = () => {

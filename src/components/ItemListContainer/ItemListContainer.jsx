@@ -18,8 +18,8 @@ function ItemListContainer() {
       });
   }, [categoryId]);
   return (
-    <main className="p-4 grow">
-      {/* <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 users drop-shadow-2xl"> */}
+    <main className="p-4 text-white grow mi-main bg-slate-600">
+      <p>Productos</p>
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 users">
         <ItemList products={products} />
       </section>
