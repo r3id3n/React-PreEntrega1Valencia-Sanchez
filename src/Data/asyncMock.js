@@ -4,21 +4,24 @@ const products = [
     name: "product 1",
     price: 100000,
     category: "AMD",
-    stock: 10
+    stock: 10,
+    img: 'https://media.solotodo.com/media/products/1580673_picture_1651582928.jpg'
   },
   {
     id: 2,
     name: "product 2",
     price: 200000,
     category: "Intel",
-    stock: 5
+    stock: 5,
+    img: 'https://media.solotodo.com/media/products/1514024_picture_1640156807.jpg'
   },
   {
     id: 3,
     name: "product 3",
     price: 300000,
     category: "AMD",
-    stock: 3
+    stock: 3,
+    img: 'https://media.solotodo.com/media/products/1569342_picture_1672268351.jpg'
   },
 ];
 export const getProducts = () => {
