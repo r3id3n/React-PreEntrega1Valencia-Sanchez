@@ -9,9 +9,9 @@ function CartWidget() {
   return (
     <>
       <Store />
-      <button onClick={handleClick}>
+      {/* <button onClick={handleClick}>
         <span>{count}</span>
-      </button>
+      </button> */}
     </>
   );
 }
