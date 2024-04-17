@@ -1,15 +1,13 @@
-
 import ItemCount from "../ItemCount/ItemCount";
 
 function ItemDetail({ id, name, price, category, stock }) {
   return (
     <article className="CardItem">
       <header className="Header">
-        <h2 className="ItemHeader">ID : {id}</h2>
         <h2 className="ItemHeader">Nombre : {name}</h2>
       </header>
       <section>
-        <p className="Info">Precio : ${price}</p>
+        <p className="Info">Precio : {price}</p>
         <p className="Info">Categoria : {category}</p>
         <p className="Info">Stock : {stock}</p>
       </section>

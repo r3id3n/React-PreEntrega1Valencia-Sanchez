@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 function ItemDetailContainer() {
-  const [product, setProduct] = useState(null)
-  const { itemId } = useParams()
+  const [product, setProduct] = useState(null);
+  const { itemId } = useParams();
 
   useEffect(() => {
     getProductById(itemId)
@@ -18,9 +18,11 @@ function ItemDetailContainer() {
   }, [itemId]);
 
   return (
-    <div className="ItemDetailContainer">
-      <ItemDetail {...product} />
-    </div>
+    <main className="p-4 grow">
+      <div className="ItemDetailContainer">
+        <ItemDetail {...product} />
+      </div>
+    </main>
   );
 }
 export default ItemDetailContainer;

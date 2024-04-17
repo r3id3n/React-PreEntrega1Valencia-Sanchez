@@ -1,25 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Item({ id, name, price, category, stock}) {
+function Item({ id, name, price, category, stock }) {
   return (
-    <article className="CardItem">
-        <header className='Header'>
-            <h2 className='ItemHeader'>Nombre : {name}</h2>
-        </header>
-        <section>
-            <p className="Info">
-                Precio: ${price}
-            </p>
-            <p className='Info'>
-                Categoria: {category}
-            </p>
-            <p className='Info'>
-                Stock : {stock}
-            </p>
-        </section>
-        <Link to={`/item/${id}`} className='Option'> ver Detalle </Link>
-    </article>
+    <div className="user-card p-4 transition rounded-md shadow-md hover:scale-105 group bg-slate-300">
+      <h2 className="my-2 font-bold">{name}</h2>
+      <section>
+        <p>{price}</p>
+        <p>{category}</p>
+        <p>{stock}</p>
+      </section>
+      <Link to={`/item/${id}`} className="Option">
+        {" "}
+        ver Detalle{" "}
+      </Link>
+    </div>
   );
 }
 export default Item;
