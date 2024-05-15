@@ -1,29 +1,30 @@
 import { useEffect, useState } from "react";
-import { getProducts, getProductsByCategory } from "../../Data/asyncMock";
+import { getProducts , getProductCategories } from "../../Controller/utils";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 
 function ItemListContainer() {
-  const [products, setProducts] = useState([]);
-  const { categoryId } = useParams();
+  const [characters, setCharacters] = useState([]);
+  const paramet = useParams();
 
   useEffect(() => {
-    const asyncFunc = categoryId ? getProductsByCategory : getProducts;
-    asyncFunc(categoryId)
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    if(paramet.categoria){
+      getProductCategories(paramet.categoria)
+      .then((res) => {
+        setCharacters(res);
       });
-  }, [categoryId]);
+    }else{
+      getProducts()
+      .then((res) => { 
+        setCharacters(res);
+       })
+    }
+  }, [paramet.categoria]);
   return (
-    <main className="p-4 text-white grow mi-main bg-slate-600">
-      <p>Productos</p>
-      <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 users">
-        <ItemList products={products} />
-      </section>
-    </main>
+    <div>
+      <h1 className="p-4 mb-1 text-3xl font-bold text-cyan-500">Procesadores</h1>
+      <ItemList characters={characters} />
+    </div>
   );
 }
 export default ItemListContainer;

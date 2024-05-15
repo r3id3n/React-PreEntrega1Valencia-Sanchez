@@ -1,22 +1,29 @@
-import React from "react";
+import { Button } from "antd";
 import { Link } from "react-router-dom";
 
-function Item({ id, name, price, category, stock, img }) {
+function Item({ character }) {
+  const { id, name, image, price, category, stock } = character;
   return (
-    <div className="user-card p-4 transition rounded-md shadow-md hover:scale-105 group bg-slate-300 text-center">
-      <h2 className="my-2 font-bold">{name}</h2>
-      <picture>
-        <img src={img} alt={name} className="ItemImg"/>
-      </picture>
-      <section>
-        <p>{price}</p>
-        <p>{category}</p>
-        <p>{stock}</p>
-      </section>
-      <Link to={`/item/${id}`} className="Option">
-        {" "}
-        ver Detalle{" "}
-      </Link>
+    <div className="user-card p-4 transition rounded-md shadow-md hover:scale-105 group bg-cyan-800">
+      <div className="aspect-square overflow-hidden">
+        <img
+          className="w-full rounded-md grayscale group-hover:grayscale-0 object-cover group-hover:scale-110 duration-500 transition-all border-4 border-cyan-500"
+          src={image}
+          alt="Card image proce"
+        />
+      </div>
+      <div className="text-left">
+        <h2 className="text-xl font-bold mt-4">{name}</h2>
+        <p className="text-white">{category}</p>
+        <p className="text-white">Valor: ${price}</p>
+        <p className="text-white">Stock: {stock}</p>
+      </div>
+        <Link
+          to={`/characters/${id}`}
+          className="btn btn-primary mt-4 flex justify-center"
+        >
+          Ver más
+        </Link>
     </div>
   );
 }

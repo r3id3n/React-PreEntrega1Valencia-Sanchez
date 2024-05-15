@@ -1,20 +1,20 @@
-import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
+import CartContext from "./components/context/CartContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer />} />
-        <Route path="/category/:categoryId" element={<ItemListContainer />} />
-        <Route path='/item/:itemId' element={<ItemDetailContainer />} />
-        <Route path='*' element={<h1>404 Not Found</h1>} />
-      </Routes>
-      <Footer/>
+      <CartContext>
+        <Header />
+        <Main/> 
+        <Footer/>
+      </CartContext>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

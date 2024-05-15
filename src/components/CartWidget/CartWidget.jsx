@@ -1,19 +1,14 @@
 import { Store } from "lucide-react";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import useCart from "../../hooks/useCart";
 
 function CartWidget() {
-  const [count, setCount] = useState(0);
-  const handleClick = () => {
-    setCount(count + 1);
-  };
+  const elValorDelContexto = useCart();
   return (
-    <>
+    <Link to="/cart" className="flex items-center gap-2">
       <Store />
-      {/* <button onClick={handleClick}>
-        <span>{count}</span>
-      </button> */}
-    </>
+      {elValorDelContexto.cantidadTotal}
+    </Link>
   );
 }
-
 export default CartWidget;

@@ -1,27 +1,38 @@
-import React, { useState } from "react";
-import { Button } from "antd";
+import { useState } from "react";
 
-function ItemCount({ stock, initial, onAdd }) {
-  const [count, setCount] = useState(initial);
+function ItemCount(props) {
 
-  const handleIncrement = () => {
-    if (count < stock) {
-      setCount(count + 1);
-    }
+  const [count, setCount] = useState(0);
+  const incrementar = () => {
+    setCount(count + 1);
   };
-
-  const handleDecrement = () => {
-    if (count > 1) {
-      setCount(count - 1);
-    }
+  const decrementar = () => {
+    setCount(count - 1);
+  };
+  const confirmar = () => {
+    props.handleConfirm(count);
   };
 
   return (
-    <div>
-      <button onClick={handleDecrement}>-</button>
-      <span>{count}</span>
-      <button onClick={handleIncrement}>+</button>
-      <button onClick={() => onAdd(count)} disabled={!stock}>Add to cart</button>
+    <div className="">
+      <div className="flex gap-4">
+        <button
+          onClick={incrementar}
+          className="bg-white rounded-full p-4 text-black"
+        >
+          {" "}
+          +{" "}
+        </button>
+        <p>{count}</p>
+        <button
+          onClick={decrementar}
+          className="bg-white rounded-full p-4 text-black"
+        >
+          {" "}
+          -{" "}
+        </button>
+      </div>
+      <button className="" onClick={confirmar}>Confirmar cantidad</button>
     </div>
   );
 }

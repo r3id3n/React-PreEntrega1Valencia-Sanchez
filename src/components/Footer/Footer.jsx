@@ -1,7 +1,7 @@
 function Footer(){
     return (
-        <footer className="bg-slate-700 p-2 text-wrap text-center text-white">
-            <p>footer mi-empresa</p>
+        <footer className="bg-cyan-700 p-2 text-wrap text-center shadow-md text-white">
+            <p>Solo Proce Copyright © 2024. All Rights Reserved.</p>
         </footer>
     )
 }

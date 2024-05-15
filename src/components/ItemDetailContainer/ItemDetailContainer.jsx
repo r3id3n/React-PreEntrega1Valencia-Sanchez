@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
-import { getProductById } from "../../Data/asyncMock";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { getProductDetail} from "../../Controller/utils";
 
 function ItemDetailContainer() {
-  const [product, setProduct] = useState(null);
-  const { itemId } = useParams();
+  const { id } = useParams();
+  const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    getProductById(itemId)
-      .then((response) => {
-        setProduct(response);
+    getProductDetail(id)
+      .then((res) => {
+        setCharacter(res);
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }, [itemId]);
+      .catch((err) => {
+        console.log(err);
+      })
+  }, []);
 
   return (
-    <main className="p-4 grow">
-      <div className="ItemDetailContainer">
-        <ItemDetail {...product} />
-      </div>
-    </main>
+    <div>
+      <ItemDetail character={character} />
+    </div>
   );
 }
 export default ItemDetailContainer;

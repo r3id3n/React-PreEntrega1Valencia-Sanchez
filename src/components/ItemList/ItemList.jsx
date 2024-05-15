@@ -1,14 +1,12 @@
-import React from "react";
 import Item from "../Item/Item";
 
-function ItemList({ products }) {
+function ItemList({ characters }) {
   return (
-    <>
-      <h2 className="my-2 font-bold">{name}</h2>
-      {products.map((prod) => (
-        <Item key={prod.id} {...prod} />
-      ))}
-    </>
-  );
+    <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 users">
+        {characters.map((character) => {
+        return <Item key={character.id} character={character} />;
+      })}
+    </section>
+  )
 }
 export default ItemList;
